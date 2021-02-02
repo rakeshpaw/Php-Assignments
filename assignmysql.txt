@@ -1,0 +1,162 @@
+
+Quesion 1
+
+create database db;
+
+
+
+ use db;
+
+
+
+ create table emp_detail(emp_id int not null,fname varchar(20),mname varchar(20),lname varchar(20),city varchar(20),salary int);
+Query OK, 0 rows affected (0.15 sec)
+
+mysql> desc emp_detail;
++--------+-------------+------+-----+---------+-------+
+| Field  | Type        | Null | Key | Default | Extra |
++--------+-------------+------+-----+---------+-------+
+| emp_id | int(11)     | NO   |     | NULL    |       |
+| fname  | varchar(20) | YES  |     | NULL    |       |
+| mname  | varchar(20) | YES  |     | NULL    |       |
+| lname  | varchar(20) | YES  |     | NULL    |       |
+| city   | varchar(20) | YES  |     | NULL    |       |
+| salary | int(11)     | YES  |     | NULL    |       |
++--------+-------------+------+-----+---------+-------+
+
+
+
+
+insert into emp_detail(emp_id,fname,mname,lname,city,salary)values(1,'john','joe','josuza','pune',35000);
+Query OK, 1 row affected (0.00 sec)
+
+mysql> select * from emp_detail;
++--------+-------+-------+--------+------+--------+
+| emp_id | fname | mname | lname  | city | salary |
++--------+-------+-------+--------+------+--------+
+|      1 | john  | joe   | josuza | pune |  35000 |
++--------+-------+-------+--------+------+--------+
+
+
+
+ysql> select * from emp_detail;                                               +--------+----------+--------+---------+-------------+--------+
+| emp_id | fname    | mname  | lname   | city        | salary |
++--------+----------+--------+---------+-------------+--------+
+|      1 | john     | joe    | josuza  | pune        |  35000 |
+|      2 | peter    | pintu  | parker  | mumbai      |  40000 |
+|      3 | dayle    | don    | desouza | delhi       |  30000 |
+|      4 | david    | smith  | warner  | banglore    |  45000 |
+|      5 | aron     | warun  | finch   | hydrabad    |  25000 |
+|      6 | mahendra | singh  | dhoni   | ranchi      |  50000 |
+|      7 | ravindra | ramesh | jadeja  | ahemadnagar |  20000 |
+|      8 | michel   | rio    | stark   | sydney      |  42000 |
+|      9 | yuzi     | yogesh | chahal  | kochin      |  27000 |
+|     10 | bhuvi    | sameer | shami   | agra        |  32000 |
++--------+----------+--------+---------+-------------+--------+
+
+
+select concat(fname," ",mname," ",lname)as Name from emp_detail;
++------------------------+
+| Name                   |
++------------------------+
+| john joe josuza        |
+| peter pintu parker     |
+| dayle don desouza      |
+| david smith warner     |
+| aron warun finch       |
+| mahendra singh dhoni   |
+| ravindra ramesh jadeja |
+| michel rio stark       |
+| yuzi yogesh chahal     |
+| bhuvi sameer shami     |
++------------------------+
+
+-------------------------------------------------------------------------------------
+
+
+quesion 2
+
+select fname from emp_detail where emp_id=2;
++-------+
+| fname |
++-------+
+| peter |
++-------+
+
+
+
+select distinct lname from emp_detail;
++--------+
+| lname  |
++--------+
+| josuza |
+| parker |
+| warner |
+| finch  |
+| dhoni  |
+| jadeja |
+| stark  |
+| chahal |
+| shami  |
++--------+
+
+-----------------------------------------------------------------------------------------------
+Quesion 3
+
+create user 'end_user'@'localhost' identified by 'enduser';
+
+    grant select on db.emp_detail to 'end_user'@'localhost';
+
+    grant insert on db.emp_detail to 'end_user'@'localhost';
+
+    grant update on db.emp_detail to 'end_user'@'localhost';
+
+    grant delete  on db.emp_detail to 'end_user'@'localhost';
+
+
+
+
+
+ create user 'admin'@'localhost' identified by 'admin';
+
+    grant select  on db.emp_detail to 'admin'@'localhost';
+
+    grant insert  on db.emp_detail to 'admin'@'localhost';
+
+    grant update  on db.emp_detail to 'admin'@'localhost';
+
+    grant delete  on db.emp_detail to 'admin'@'localhost';
+
+    grant create  on db.emp_detail to 'admin'@'localhost';
+
+    grant alter on db.emp_detail to 'admin'@'localhost';
+
+
+
+create user 'super_admin'@'localhost'identified by 'super_admin';
+
+
+  GRANT ALL PRIVILEGES ON * . * TO 'super_admin'@'localhost';
+
+
+-----------------------------------------------------------------------------------
+
+Quesion 4
+
+    sudo mysql -u root -p
+
+
+
+create database db;
+
+
+
+ use db;
+
+
+ show tables;
+
+ -----------------------------------------------------------------------------------
+
+
+
